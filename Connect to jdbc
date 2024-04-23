@@ -1,0 +1,17 @@
+package jdbc;
+import java.sql.*;
+
+public class Connect{
+	public static void main(String args[]){
+	try {
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/SCHEMA_NAME","EEE2149","EEE2149");
+		Statement stmt=con.createStatement();
+		String sql= "Create table Products(product_name varchar(25),quantity int,price int,supplier_id int)";
+		stmt.execute(sql);
+	}
+	catch(Exception e) {
+		System.out.println(e);
+	}
+	}
+}
